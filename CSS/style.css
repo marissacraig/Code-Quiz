@@ -19,22 +19,29 @@
   }
   
   .reset-button {
-    font-size: 16px;
-    height: 30px;
-    line-height: 8px;
-    margin-top: 20px;
+    font-size: 18px;
+    height: 26px;
+    line-height: 4px;
+    margin-top: 15px;
   }
   
-  .win-loss-container {
+  .high-score-container {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
   }
   
+  .high-score-button {
+    float: left;
+    font-size: 18px;
+    position: relative;
+    margin: 0;
+  }
+
   button {
-    background: radial-gradient(circle, var(--ivory) 0%, var(--tan) 100%);
+    background: radial-gradient(circle, var(--white) 0%, var(--ivory) 100%);
     border-radius: 8px;
-    color: var(--teal);
+    color: var(--black);
     cursor: pointer;
     font-size: 2em;
     letter-spacing: 0.21px;
@@ -45,15 +52,13 @@
     transition-duration: 0.15s;
     transition-property: background-color;
     transition-timing-function: linear;
-    margin-top: 0.6em;
+    margin: 1em;
   }
   
   header {
     padding: 40px;
     text-align: center;
-    background: var(--tan);
     color: var(--black);
-    border-bottom:30px #879274;
   }
   
   main {
@@ -81,7 +86,7 @@
   }
   
   .card {
-    background: radial-gradient(circle, var(--yellow) 0%, var(--orange) 100%);
+    background: radial-gradient(circle, var(--ivory) 0%, var(--blue) 100%);
     border: 1px solid var(--blue);
     border-radius: 8px;
     box-shadow: var(--tan) 0 1px 2px 0,
@@ -102,8 +107,8 @@
   .timer {
     height: 240px;
     padding: 10px;
-    background: var(--purple);
-    color: var(--yellow);
+    background: var(--ivory);
+    color: var(--black);
     text-align: center;
   }
   

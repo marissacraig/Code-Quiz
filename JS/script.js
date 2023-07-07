@@ -1,6 +1,5 @@
 var wordBlank = document.querySelector(".word-blanks");
 var win = document.querySelector(".win");
-var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 
@@ -22,7 +21,7 @@ var words = ["variable","array", "modulus", "object", "function", "string", "boo
 // The init function is called when the page loads 
 function init() {
   getWins();
-  getlosses();
+  ;
 }
 
 // The startGame function is called when the start button is clicked
@@ -49,7 +48,7 @@ function loseGame() {
   wordBlank.textContent = "GAME OVER";
   loseCounter++
   startButton.disabled = false;
-  setLosses()
+  
 }
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -98,11 +97,6 @@ function setWins() {
   localStorage.setItem("winCount", winCounter);
 }
 
-// Updates lose count on screen and sets lose count to client storage
-function setLosses() {
-  lose.textContent = loseCounter;
-  localStorage.setItem("loseCount", loseCounter);
-}
 
 // These functions are used by init
 function getWins() {
@@ -119,15 +113,15 @@ function getWins() {
   win.textContent = winCounter;
 }
 
-function getlosses() {
-  var storedLosses = localStorage.getItem("loseCount");
-  if (storedLosses === null) {
-    loseCounter = 0;
-  } else {
-    loseCounter = storedLosses;
-  }
-  lose.textContent = loseCounter;
-}
+// function getlosses() {
+//   var storedLosses = localStorage.getItem("loseCount");
+//   if (storedLosses === null) {
+//     loseCounter = 0;
+//   } else {
+//     loseCounter = storedLosses;
+//   }
+//   lose.textContent = loseCounter;
+// }
 
 function checkWin() {
   // If the word equals the blankLetters array when converted to string, set isWin to true
