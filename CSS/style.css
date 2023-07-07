@@ -1,10 +1,11 @@
 * {
     box-sizing: border-box;
-    --orange: #DC8665;
-    --teal: #138086;
-    --purple: #534666;
-    --mauve: #CD7672;
-    --yellow: #EEB462;
+    --blue: #bdd4f1;
+    --tan: #baa287;
+    --gray: #7c8584;
+    --ivory: #e6e3e4;
+    --black: #121b28;
+    --white: white;
   }
   
   body {
@@ -14,7 +15,7 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
-    background: linear-gradient(0deg, var(--teal) 0%, var(--yellow) 63%);
+    background: linear-gradient(0deg, var(--tan) 0%, var(--ivory) 63%);
   }
   
   .reset-button {
@@ -31,7 +32,7 @@
   }
   
   button {
-    background: radial-gradient(circle, var(--yellow) 0%, var(--orange) 100%);
+    background: radial-gradient(circle, var(--ivory) 0%, var(--tan) 100%);
     border-radius: 8px;
     color: var(--teal);
     cursor: pointer;
@@ -50,8 +51,8 @@
   header {
     padding: 40px;
     text-align: center;
-    background: var(--teal);
-    color: var(--mauve);
+    background: var(--tan);
+    color: var(--black);
     border-bottom:30px #879274;
   }
   
@@ -65,7 +66,7 @@
     flex: 0 auto;
     padding: 8px;
     margin-top: 50px;
-    background-color: var(--mauve);
+    background-color: var(--);
     border-radius: 8px;
   }
   
@@ -81,10 +82,10 @@
   
   .card {
     background: radial-gradient(circle, var(--yellow) 0%, var(--orange) 100%);
-    border: 1px solid var(--mauve);
+    border: 1px solid var(--blue);
     border-radius: 8px;
-    box-shadow: var(--purple) 0 1px 2px 0,
-      var(--purple) 0 2px 4px 3px;
+    box-shadow: var(--tan) 0 1px 2px 0,
+      var(--gray) 0 2px 4px 3px;
     margin: auto;
     padding: 20px;
   }
