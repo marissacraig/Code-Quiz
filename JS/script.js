@@ -2,53 +2,34 @@
 var score = document.querySelector(".win");
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
-var currentQuestion = "";
+var currentQuestion = 0;
 var newScore = 0;
 var isScore = false;
 var timer;
 var timerCount;
 
 
-// Questions that user will be asked
-var questions = [{
+// Questions that user will be asked and possible answers
+// The correct answer is located at the index number listed after answers
+var allQuestions = [{
   q: "",
-  a: [{ text: "", isCorrect: false },
-  { text: "", isCorrect: true },
-  { text: "", isCorrect: false },
-  { text: "", isCorrect: false },
-  ]
+  a: ["","","","",0],
 },
 {
   q: "",
-  a: [{ text: "", isCorrect: false },
-  { text: "", isCorrect: true },
-  { text: "", isCorrect: false },
-  { text: "", isCorrect: false },
-  ]
+  a: ["","","","",1]
 },
 {
   q: "",
-  a: [{ text: "", isCorrect: false },
-  { text: "", isCorrect: true },
-  { text: "", isCorrect: false },
-  { text: "", isCorrect: false },
-  ]
+  a: ["","","","",3]
 },
 {
   q: "",
-  a: [{ text: "", isCorrect: false },
-  { text: "", isCorrect: true },
-  { text: "", isCorrect: false },
-  { text: "", isCorrect: false },
-  ]
+  a: ["","","","",2]
 },
 {
   q: "",
-  a: [{ text: "", isCorrect: false },
-  { text: "", isCorrect: true },
-  { text: "", isCorrect: false },
-  { text: "", isCorrect: false },
-  ]
+  a: ["","","","",0]
 }]
 
 // The init function is called when the page loads 
@@ -70,7 +51,7 @@ function startQuiz() {
 
 // The winGame function is called when the win condition is met
 function endQuiz() {
-  wordBlank.textContent = "YOU WON!!!🏆 ";
+  wordBlank.textContent = "Your score 🏆 ";
   newScore++
   startButton.disabled = false;
   setScore()
@@ -102,23 +83,42 @@ function startTimer() {
 }
 
 // Picks a random question
-function loadQuestion() {
+function loadQuestion(currentQuestion) {
   var question = document.querySelector("#question");
-  var options = document.querySelector("#options");
+  var answers = document.querySelector("#answers");
   
-  question.textContent = questions[currentQuestion].q;
-  
-  chosenQuestion = questions[Math.floor(Math.random() * questions.length)];
-  lettersInChosenWord = chosenQuestion.split("");
-  numBlanks = lettersInChosenWord.length;
-  
-  // Uses loop to push blanks to blankLetters array
-  for (var i = 0; i < numBlanks; i++) {
-    blanksLetters.push("_");
-  }
-  // Converts blankLetters array into a string and renders it on the screen
-  wordBlank.textContent = blanksLetters.join(" ")
+  question.textContent = allQuestions[currentQuestion].q;
+  answers.textContent = allQuestions[currentQuestion].a;
 }
+
+// Attach event listener to document to listen for key event
+document.addEventListener("click", checkAnswer(i, answers)) 
+
+
+// Tests if guessed answer is correct
+function checkAnswer(i, arr) {
+  // If the count is zero, exit function
+  if (timerCount === 0) {
+    return;
+  }
+  // Test if click is the correct answer
+  if (timerCount !== 0) {
+  
+  // -- I answer a question incorrectly, time is subtracted from the clock
+  var chosenAnswer = i;
+  var correctAnswer = arr[arr.length -1];
+  for (var i = 0; i < answers.length -1; i += 1) {
+    if (chosenAnswer[i] === correctAnswer) {
+      chosenAnswer = true;
+    }
+  }
+
+   // -- I answer a question; I am presented with another question
+
+   return 
+  }
+};
+
 
 // Updates win count on screen and sets win count to client storage
 // -- the game is over; I can save my initials and my score -- through line was 136
@@ -143,53 +143,8 @@ function getScores() {
   score.textContent = displayScore;
 }
 
-function checkAnswer() {
-  // If the word equals the blankLetters array when converted to string, set isWin to true
-  if (chosenWord === blanksLetters.join("")) {
-    // This value is used in the timer function to test if win condition is met
-    isScore = true;
-  }
-}
-
-// Tests if guessed letter is in word and renders it to the screen.
-function checkLetters(letter) {
-  // -- I answer a question incorrectly, time is subtracted from the clock
-  var letterInWord = false;
-  for (var i = 0; i < numBlanks; i++) {
-    if (chosenWord[i] === letter) {
-      letterInWord = true;
-    }
-  } // -- I answer a question; I am presented with another question
-  if (letterInWord) {
-    for (var j = 0; j < numBlanks; j++) {
-      if (chosenWord[j] === letter) {
-        blanksLetters[j] = letter;
-      }
-    }
-    wordBlank.textContent = blanksLetters.join(" ");
-  }
-}
-
-// Attach event listener to document to listen for key event
-document.addEventListener("keydown", function(event) {
-  // If the count is zero, exit function
- r
-  if (timerCount === 0) {
-    return;
-  }
-  // Convert all keys to lower case
-  var key = event.key.toLowerCase();
-  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
-  // Test if key pushed is letter
-  if (alphabetNumericCharacters.includes(key)) {
-    var letterGuessed = event.key;
-    checkLetters(letterGuessed)
-    checkAnswer();
-  }
-});
-
 // Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", startQuiz);
 
 // Calls init() so that it fires when page opened
 init();

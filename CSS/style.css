@@ -75,7 +75,7 @@
     border-radius: 8px;
   }
   
-  .word-guess {
+  .questions {
     width: 55vw;
     height: 400px;
   }
@@ -95,7 +95,7 @@
     padding: 20px;
   }
   
-  .word-blanks {
+  .options {
     line-height: 360px;
   }
   
@@ -121,7 +121,7 @@
       flex-direction: column;
     }
   
-    .word-guess,
+    .questions,
     .results {
       width: 90vw;
     }
