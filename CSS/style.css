@@ -1,5 +1,11 @@
 * {
     box-sizing: border-box;
+    --blue: #bdd4f1;
+    --tan: #baa287;
+    --gray: #7c8584;
+    --ivory: #e6e3e4;
+    --black: #121b28;
+    --white: white;
   }
   
   body {
@@ -9,26 +15,33 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
-    background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
+    background: linear-gradient(0deg, var(--tan) 0%, var(--ivory) 63%);
   }
   
   .reset-button {
-    font-size: 16px;
-    height: 30px;
-    line-height: 8px;
-    margin-top: 20px;
+    font-size: 18px;
+    height: 26px;
+    line-height: 4px;
+    margin-top: 15px;
   }
   
-  .win-loss-container {
+  .high-score-container {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
   }
   
+  .high-score-button {
+    float: left;
+    font-size: 18px;
+    position: relative;
+    margin: 0;
+  }
+
   button {
-    background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,96,33,0.9542191876750701) 100%);
+    background: radial-gradient(circle, var(--white) 0%, var(--ivory) 100%);
     border-radius: 8px;
-    color: #13293d;
+    color: var(--black);
     cursor: pointer;
     font-size: 2em;
     letter-spacing: 0.21px;
@@ -39,15 +52,13 @@
     transition-duration: 0.15s;
     transition-property: background-color;
     transition-timing-function: linear;
-    margin-top: 0.6em;
+    margin: 1em;
   }
   
   header {
     padding: 40px;
     text-align: center;
-    background: #13293d;
-    color: #fff;
-    border-bottom:30px #879274;
+    color: var(--black);
   }
   
   main {
@@ -60,11 +71,11 @@
     flex: 0 auto;
     padding: 8px;
     margin-top: 50px;
-    background-color: white;
+    background-color: var(--);
     border-radius: 8px;
   }
   
-  .word-guess {
+  .questions {
     width: 55vw;
     height: 400px;
   }
@@ -75,16 +86,16 @@
   }
   
   .card {
-    background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,124,33,0.604079131652661) 100%);
-    border: 1px solid #eceff1;
+    background: radial-gradient(circle, var(--ivory) 0%, var(--blue) 100%);
+    border: 1px solid var(--blue);
     border-radius: 8px;
-    box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
-      rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+    box-shadow: var(--tan) 0 1px 2px 0,
+      var(--gray) 0 2px 4px 3px;
     margin: auto;
     padding: 20px;
   }
   
-  .word-blanks {
+  .options {
     line-height: 360px;
   }
   
@@ -96,8 +107,8 @@
   .timer {
     height: 240px;
     padding: 10px;
-    background: #13293d;
-    color: #fff;
+    background: var(--ivory);
+    color: var(--black);
     text-align: center;
   }
   
@@ -110,7 +121,7 @@
       flex-direction: column;
     }
   
-    .word-guess,
+    .questions,
     .results {
       width: 90vw;
     }
