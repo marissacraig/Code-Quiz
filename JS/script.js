@@ -138,9 +138,9 @@ function loadQuestion() {
   for (var i = 0; i < allQuestions.length; i++) {
     currentQuestion = [i];
 
-    questionArea.append(allQuestions[currentQuestion].q[i].value);
+    questionArea.append(allQuestions[currentQuestion].q[i]);
 
-    answersLabel.textContent = allQuestions[currentQuestion].a[i].value;
+    answersLabel.textContent = allQuestions[currentQuestion].a[i];
     answersArea.append(answersLabel);
     answers.appendChild(answersArea);
 
@@ -160,7 +160,7 @@ function checkAnswer() {
   // Test if click is the correct answer
   if (timerCount !== 0) {
 
-    var selectedAnswer = parseInt(document.querySelector('input[name="answer"]').value);
+    var selectedAnswer = parseInt(document.querySelector('input[name="answer"]'));
 
     if (allQuestions[currentQuestion].a[selectedAnswer].isCorrect) {
       newScore++;
